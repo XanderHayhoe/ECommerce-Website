@@ -7,20 +7,16 @@ import {
   createUserDocumentFromAuth,
   signInWithGoogleRedirect,
 } from "../../utils/firebase/firebase";
+import "./Authentication.styles.scss";
 import SignUp from "../../components/SignUp/SignUp";
-
-const SignIn = () => {
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
-  };
+import SignIn from "../../components/SignIn/SignIn";
+const Authentication = () => {
   return (
-    <div>
+    <div className='authentication-container'>
+      <SignIn />
       <SignUp />
-      <h1>Sign in</h1>
-      <button onClick={logGoogleUser}>Sign in with Google Popup</button>
     </div>
   );
 };
 
-export default SignIn;
+export default Authentication;
